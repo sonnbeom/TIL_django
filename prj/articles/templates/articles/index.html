@@ -1,8 +1,15 @@
-{% extends "articles/base.html" %}
-
-{% block content %}
-<h1>
-    안녕하세요: {{name}}
-</h1>
-{% endblock content %}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <p>{{articles}}</p>-->
+    {% for article in  articles%}
+        <p>{{article.title}}</p>
+        <p>{{article.content}}</p>
+        <hr>
+    {% endfor %}
+</body>
+</html>

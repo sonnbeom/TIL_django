@@ -1,11 +1,12 @@
 from django.shortcuts import render
 import random
+from .models import Article
 # Create your views here.
 def index_article(request):
     context = {
         'name': 'soony',
     }
-    return render(request, 'articles/index.html', context)
+    return render(request, 'articles/index_past.html', context)
 
 def dinner(request):
     foods = ['국밥', '고기', '라면', '감자']
@@ -31,7 +32,22 @@ def catch(request):
 
 def greeting(request, name):
     context = {
-        'name':name,
+        'name': name,
     }
     return render(request, 'articles/greeting.html', context)
 
+def index(request):
+    articles = Article.objects.all()
+    articles_v2 = Article.objects.filter(content__contains='!')
+    print(articles_v2)
+    context = {
+        'articles': articles
+    }
+    return render(request, 'articles/index.html', context)
+
+def detail(request, pk):
+    article = Article.objects.get(pk = pk)
+    context = {
+        'article': article
+    }
+    return render(request, 'articles/detail.html', context)

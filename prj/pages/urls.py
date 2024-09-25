@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
-
 app_name = 'pages'
+from  views import index_article
+from articles
 
 urlpatterns = [
 
