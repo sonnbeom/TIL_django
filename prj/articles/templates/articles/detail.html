@@ -10,9 +10,14 @@
     <hr>
     <p>제목 : {{article.title}}</p>
     <p>내용 : {{article.content}}</p>
+    {% if article.image %}
+        <img src="{{article.image.url}}" alt="img">
+    {% endif %}
     <p>작성일 : {{article.created_at}}</p>
     <p>수정일 : {{article.updated_at}}</p>
     <hr>
     <a href="{% url "articles:index" %}">메인</a>
+    <br>
+    <a href="{% url 'articles:update' article.pk %}">수정하기</a>
 </body>
 </html>

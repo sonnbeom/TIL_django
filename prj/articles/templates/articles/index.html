@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +6,15 @@
     <title>Title</title>
 </head>
 <body>
-<!--    <p>{{articles}}</p>-->
+    <img src="{% static "articles/mz3.jpg" %}" alt="sample">
+    <img src="{% static "articles/mz4.jpg" %}" alt="엥">
+    <img src="{% static "m3.jpg" %}" alt="adsa">
     {% for article in  articles%}
-        <p>{{article.title}}</p>
-        <p>{{article.content}}</p>
+        <p>제목: {{article.title}}</p>
+        <p>내용: {{article.content}}</p>
+        <a href="{% url 'articles:detail' article.pk %}">게시글 보기</a>
         <hr>
     {% endfor %}
+    <a href="{% url 'articles:create' %}">게시글 작성</a>
 </body>
 </html>

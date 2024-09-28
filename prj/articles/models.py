@@ -16,3 +16,4 @@ class Article(models.Model):
     # auto_now_add => 처음 생성될 때만 현재 시간 저장
     updated_at = models.DateTimeField(auto_now=True)
     # 저장될 때마다 현재 날짜 시간을 저장
+    image = models.ImageField(blank=True)
