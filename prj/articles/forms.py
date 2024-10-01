@@ -20,3 +20,8 @@ class ArticleForm(forms.ModelForm):
          model = Article
          fields = '__all__'
         #  exclude = ('title',)
+
+class ArticleForm_v2(forms.ModelForm):
+     class Meta:
+          model = Article
+          fields = '__all__'
